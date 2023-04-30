@@ -63,7 +63,12 @@ int main(){
             std::cin >> A;
             std::cout << "Qual o último inteiro do intervalo?" << std::endl;
             std::cin >> B;
-            resultado = soma_intervalo_fechado(A, B);
+            if (A > B){
+                resultado = soma_intervalo_fechado(B, A);
+            }
+            else{
+                resultado = soma_intervalo_fechado(A, B);
+            }
             std::cout << "O resultado da soma do intervalo fechado é " << resultado << std::endl;
         }
         else if (opt == 2){
@@ -71,24 +76,53 @@ int main(){
             std::cin >> A;
             std::cout << "Qual o último inteiro do intervalo?" << std::endl;
             std::cin >> B;
-            resultado = soma_intervalo_aberto(A, B);
-            std::cout << "O resultado da soma do intervalo aberto é " << resultado << std::endl;
+            if (A > B){
+                resultado = soma_intervalo_aberto(B, A);
+                std::cout << "O resultado da soma do intervalo aberto é " << resultado << std::endl;
+            }
+            else if (A == B){
+                std::cout << "Não há inteiros entre " << A << " e " << B << " no intervalo aberto." << std::endl;
+            }
+            else{
+                resultado = soma_intervalo_aberto(A, B);
+                std::cout << "O resultado da soma do intervalo aberto é " << resultado << std::endl;
+            }
+            
         }
         else if (opt == 3){
             std::cout << "Qual o primeiro inteiro do intervalo?" << std::endl;
             std::cin >> A;
             std::cout << "Qual o último inteiro do intervalo?" << std::endl;
             std::cin >> B;
-            resultado = soma_intervalo_fechado_aberto(A, B);
-            std::cout << "O resultado da soma do intervalo fechado no primeiro inteiro e aberto no último é " << resultado << std::endl;
+            if (A > B){
+                resultado = soma_intervalo_fechado_aberto(B, A);
+                std::cout << "O resultado da soma do intervalo fechado no primeiro inteiro e aberto no último é " << resultado << std::endl;
+            }
+            else if (A == B){
+                std::cout << "O resultado da soma do intervalo fechado no primeiro inteiro e aberto no último é " << A << " e não " << B << " ao mesmo tempo.:D" << std::endl;
+            }
+            else{
+                resultado = soma_intervalo_fechado_aberto(A, B);
+                std::cout << "O resultado da soma do intervalo fechado no primeiro inteiro e aberto no último é " << resultado << std::endl;
+            }
+
         }
         else if (opt == 4){
             std::cout << "Qual o primeiro inteiro do intervalo?" << std::endl;
             std::cin >> A;
             std::cout << "Qual o último inteiro do intervalo?" << std::endl;
             std::cin >> B;
-            resultado = soma_intervalo_aberto_fechado(A, B);
-            std::cout << "O resultado da soma do intervalo aberto no primeiro inteiro e fechado no último é " << resultado << std::endl;
+            if (A > B){
+                resultado = soma_intervalo_aberto_fechado(B, A);
+                std::cout << "O resultado da soma do intervalo aberto no primeiro inteiro e fechado no último é " << resultado << std::endl;
+            }
+            else if (A == B){
+                std::cout << "O resultado da soma do intervalo aberto no primeiro inteiro e fechado no último é " << B << " e não " << A << " ao mesmo tempo.:D" << std::endl;
+            }
+            else{
+                resultado = soma_intervalo_aberto_fechado(A, B);
+                std::cout << "O resultado da soma do intervalo aberto no primeiro inteiro e fechado no último é " << resultado << std::endl;
+            }
         }
         else{
             std::cout << "Opção inválida." << std::endl;
